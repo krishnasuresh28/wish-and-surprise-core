@@ -1,0 +1,24 @@
+{
+  "name": "wish-and-surprise-core",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/krishnasuresh28/wish-and-surprise-core.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/krishnasuresh28/wish-and-surprise-core/issues"
+  },
+  "homepage": "https://github.com/krishnasuresh28/wish-and-surprise-core#readme",
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
