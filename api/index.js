@@ -1,23 +1,27 @@
-const express = require('express');
+import express, { Request, Response } from 'express';
+import dotenv from 'dotenv';
+import connectDB from './config/db'; // Nuvvu export chesina method
+
+// Load environment variables
+dotenv.config();
+
 const app = express();
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 
-// Basic health check route
-app.get('/', (req, res) => {
-    res.status(200).send(`
-        <div style="text-align: center; margin-top: 50px; font-family: sans-serif;">
-            <h1 style="color: #4A90E2;">Wish and Surprise Backend is LIVE! 🚀</h1>
-            <p>Ready for Monday Development Session.</p>
-            <p style="color: #666;">Domain: wishandsurprise.com | Port: ${PORT}</p>
-        </div>
-    `);
+// 1. Database Connection modaliddaam
+// Asynchronous ga connection establish chestham
+connectDB();
+
+// Middleware
+app.use(express.json());
+
+// 2. Health Check Route
+app.get('/api', (req: Request, res: Response) => {
+    res.send("Wish and Surprise Backend is LIVE and Connected to DB!");
 });
 
-// API route test
-app.get('/api/status', (req, res) => {
-    res.json({ message: "API is working perfectly!", status: "success" });
-});
-
+// 3. Start Server
 app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
+    console.log(` Server is running on port ${PORT}`);
+    console.log(` Mode: ${process.env.NODE_ENV || 'development'}`);
 });
