@@ -3,13 +3,9 @@
     "target": "ESNext",
     "module": "NodeNext",
     "moduleResolution": "NodeNext",
-    "outDir": "./dist",
-    "rootDir": "./",
-    "strict": true,
+    "verbatimModuleSyntax": false, // Deenni false chey, appudu type-only import errors povu
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true
-  },
-  "include": ["**/*.ts"],
-  "exclude": ["node_modules"]
+    "outDir": "./dist"
+  }
 }
