@@ -1,0 +1,19 @@
+import User from './models/User';
+
+export const resolvers = {
+  Query: {
+    getUsers: async () => await User.find(),
+    getUser: async (_:any, { id } : {id:string}) => await User.findById(id),
+  },
+  Mutation: {
+    createUser: async (_:any, { name, email, whatsappNumber }: {name:string,email:string,whatsappNumber?:string}) => {
+      const newUser = new User({ name, email, whatsappNumber });
+      return await newUser.save();
+    },
+    addUser: async (_:any, {name,email,whatsappNumber}: {name:string,email:String,whatsappNumber?:string}) => {
+	const newUSer= new User({name,email,whatsappNumber});
+	return  await newUSer.save();    
+  },
+},
+}
+

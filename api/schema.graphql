@@ -1,0 +1,79 @@
+type User {
+  id: ID!
+  name: String!
+  email: String!
+  whatsappNumber: String
+  friends: [User]
+  profileImage: String
+}
+type Campaign {
+  id: ID!
+  title: String!
+  description: String
+  creator: User!
+  participants: [User]
+  deadline: String!
+  targetAmount: Float
+  collectedAmount: Float
+  status: CampaignStatus # ENUM: ACTIVE, COMPLETED, CANCELLED
+}
+
+type Product {
+  id: ID!
+  name: String!
+  description: String
+  basePrice: Float!
+  category: String # LED Frame, Dress, etc.
+  isCustomizable: Boolean
+  variants: [ProductVariant]
+}
+
+type ProductVariant {
+  size: String
+  color: String
+  stock: Int
+}
+type AIWish {
+  id: ID!
+  recipientName: String!
+  generatedMessage: String!
+  tone: String # Emotional, Funny, Professional
+}
+type Customization {
+  id: ID!
+  productId: ID!
+  uploadedImageUrl: String!
+  previewCoordinates: String # For 2D/3D mapping
+  textOverlay: String
+}
+type Transaction {
+  id: ID!
+  campaignId: ID!
+  contributor: User!
+  amount: Float!
+  paymentStatus: String # SUCCESS, PENDING
+  timestamp: String
+}
+type Notification {
+  id: ID!
+  userId: ID!
+  message: String!
+  type: String # WHATSAPP, IN_APP
+  isRead: Boolean
+}
+
+type MediaAsset {
+  id: ID!
+  fileName: String!
+  url: String!
+  mimeType: String
+  owner: User!
+}
+type Order {
+  id: ID!
+  campaignId: ID!
+  vendorId: ID!
+  shippingStatus: String
+  trackingNumber: String
+}
+
